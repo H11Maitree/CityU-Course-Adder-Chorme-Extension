@@ -19,7 +19,7 @@
     background-color: #f2f2f2;
     color: #333;
     border-radius: 0.5rem;
-    padding: 5px 10px;
+    padding: 2px 2px 2px 7px;
     margin-right: 5px;
     margin-bottom: 5px;
     font-size: 14px;
@@ -42,5 +42,13 @@
     border: none;
     color: #999;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 3px;
+}
+
+#tenCRNsWarning .remove-ten-button {
+    background-color: #FADBE8;
+    border: none;
+    color: red;
+    cursor: pointer;
+    border-radius: 0.5rem;
 }

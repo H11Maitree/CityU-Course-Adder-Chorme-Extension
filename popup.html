@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <div class="container" style="margin: 1rem; width: 300px;">
-        <h3 style="margin-bottom: 0.25rem;">Quick Course Adder</h3>
-        <p style="display: inline; float: right; color: blueviolet; margin-bottom: 0.5rem;">For CityU's Aims</p>
+    <div class="container" style="margin: 1rem; width: 320px;">
+        <h3 style="margin-bottom: 0.25rem; color:#1C1C1B;">Quick Course Adder</h3>
+        <p style="display: inline; float: right; color: #AA1454; margin-bottom: 0.5rem;">For CityU's AIMS</p>
 
         <p style="display: inline-block; margin-bottom: 0.25rem;">Pre-Paste CRNs below and we will instantly paste for
             you once you are at the Add/Drop page.</p>
@@ -21,6 +21,9 @@
         <div class="tags-input" style="display: inline-block; margin-bottom: 1rem;">
             <ul id="tags"></ul>
             <input type="text" id="input-tag" placeholder="Enter CRN you want to add">
+        </div>
+        <div id="tenCRNsWarning" style="display: none;">
+            <p style="display: inline-block; font-size: 12px;">In AIMS, you have the ability to input 10 CRNs at once. After submission, you might need to  <button class="remove-ten-button" value="5">remove the initially entered 10 CRNs</button> to free up space for entering additional CRNs!</p>
         </div>
         <a href="https://banapps.cityu.edu.hk/" class="btn btn-secondary" role="button"
             style="margin-bottom: 0.5rem; display: inline; float: right;">Aims (Student Portal)</a>

@@ -9,6 +9,7 @@ function updateUI() {
     const tags = document.getElementById('tags');
     const input = document.getElementById('input-tag');
     tags.innerHTML = "";
+    var countCRNs = 0;
 
     crnList.forEach(element => {
         // Create a new list item element for the tag
@@ -16,6 +17,7 @@ function updateUI() {
 
         // If the trimmed value is not an empty string
         if (element !== '') {
+            countCRNs++;
             // Set the text content of the tag to 
             // the trimmed value
             tag.innerText = element;
@@ -30,6 +32,13 @@ function updateUI() {
             input.value = '';
         }
     });
+
+    const tenCRNsWarning = document.getElementById('tenCRNsWarning');
+    if(countCRNs>10){
+        tenCRNsWarning.style.display = "block";
+    }else{
+        tenCRNsWarning.style.display = "none";
+    }
 
 }
 
@@ -90,6 +99,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             // Update the UI
             updateUI(crnList);
         }
+
     });
 
     document.body.addEventListener('click', function(e){
@@ -104,9 +114,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    document.getElementById('input-tag').addEventListener('input', function (e) {
+    input.addEventListener('input', function (e) {
         e.target.value = e.target.value.replace(/[^0-9]/g, '');
     });
+
+    const tenCRNsWarning = document.getElementById('tenCRNsWarning');
+    tenCRNsWarning.addEventListener('click', function (event) {
+
+        if (event.target.classList.contains('remove-ten-button')) {
+            // Remove the tag from the crnList
+            crnList = crnList.slice(10);
+            console.log("Debug");
+            // Update the UI
+            updateUI(crnList);
+        }
+
+    });
+
+    tenCRNsWarning.querySelector('.remove-ten-button').addEventListener('mouseover', function (){
+        Array.from(document.querySelectorAll('.tags-input li')).slice(0,10).forEach(function (li) {
+          li.style.backgroundColor = '#FADBE8';
+        });
+      });
+      
+    tenCRNsWarning.querySelector('.remove-ten-button').addEventListener('mouseout', function (){
+        Array.from(document.querySelectorAll('.tags-input li')).slice(0,10).forEach(function (li) {
+          li.style.backgroundColor = '#f2f2f2';
+        });
+      });
 
 });
 
