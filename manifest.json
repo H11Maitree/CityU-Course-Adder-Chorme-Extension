@@ -4,8 +4,7 @@
     "description": "To help you fill the CRNs quickly.",
     "version": "1.0",
     "permissions": [
-        "storage",
-        "activeTab"
+        "storage"
     ],
     "action": {
         "default_popup": "popup.html"
