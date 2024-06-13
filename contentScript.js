@@ -3,11 +3,28 @@
 chrome.storage.local.get(["crnList"], function(result) {
     if (result.crnList === undefined) return;
 
-    if(location.href.indexOf("bwskfreg.P_AltPin") != -1 && result.crnList) {
-        let crnInputs = document.querySelectorAll('.dataentrytable input[name="CRN_IN"]');
+    if(location.href.indexOf("classRegistration") != -1 && result.crnList) {
+        const crns = document.querySelector("#crns");
+        crns.innerHTML = "";
         
-        for(let i = 0; i < result.crnList.length && i < crnInputs.length; i++) {
-            crnInputs[i].value = result.crnList[i];
-        }
+        for(let i = 0; i < result.crnList.length; i++) {
+            const newDiv = document.createElement("div");
+
+            const newInput = document.createElement("input");
+            newInput.setAttribute("id",`txt_crn${i+1}`);
+            newInput.setAttribute("maxlength",`5`);
+            newInput.setAttribute("type",`text`);
+            newInput.setAttribute("class","ui-textbox-input ui-widget-content");
+            newInput.value = result.crnList[i];
+
+            const newLabel = document.createElement("label");
+            newLabel.setAttribute("for",`txt_crn${i+1}`);
+            newLabel.setAttribute("class","crn_label");
+            newLabel.textContent = "CRN";
+
+            newDiv.appendChild(newLabel);
+            newDiv.appendChild(newInput);
+            crns.appendChild(newDiv);
+        }   
     }
 });
