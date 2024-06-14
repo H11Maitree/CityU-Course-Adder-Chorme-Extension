@@ -4,14 +4,15 @@ chrome.storage.local.get(["crnList"], function(result) {
     if (result.crnList === undefined || result.crnList.length == 0) return;
 
     if(location.href.indexOf("classRegistration") != -1 && result.crnList) {
-        const crns = document.querySelector("#crns");
+        const addAnotherCRN = document.querySelector("#addAnotherCRN");
+        for (let i = 0; i<result.crnList.length-5;i++){
+            addAnotherCRN.click();
+        }
+        const crnInputs = document.querySelectorAll("#crns input[type='text']");
         const addCRNbutton = document.querySelector("#addCRNbutton");
-        crns.innerHTML = "";
 
         for(let i = 0; i < result.crnList.length; i++) {
-            const newInput = document.createElement("input");
-            newInput.value = result.crnList[i];
-            crns.appendChild(newInput);
+            crnInputs[i].value = result.crnList[i];
         }
         addCRNbutton.click();
 
