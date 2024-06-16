@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "CityU Quick Course Adder",
     "description": "To help you fill the CRNs quickly.",
-    "version": "1.0",
+    "version": "1.1",
     "permissions": [
         "storage"
     ],
