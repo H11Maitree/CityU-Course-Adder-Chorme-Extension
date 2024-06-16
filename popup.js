@@ -1,4 +1,8 @@
 // popup.js
+let featureFlag = {
+    legacyTenCRNsWarningEnable: false,
+};
+
 var crnList = [];
 
 function updateUI() {
@@ -34,7 +38,7 @@ function updateUI() {
     });
 
     const tenCRNsWarning = document.getElementById('tenCRNsWarning');
-    if(countCRNs>10){
+    if(countCRNs > 10 && featureFlag.legacyTenCRNsWarningEnable){
         tenCRNsWarning.style.display = "block";
     }else{
         tenCRNsWarning.style.display = "none";
