@@ -11,8 +11,13 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://banweb.cityu.edu.hk/*", "http://banweb.cityu.edu.hk/*"],
+            "matches": ["http://banappstureg.cityu.edu.hk/*", "https://banappstureg.cityu.edu.hk/*"],
             "js": ["contentScript.js"],
+            "include_globs" : ["*/StudentRegistrationSsb/ssb/classRegistration/*"]
+        },
+        {
+            "matches": ["https://banweb.cityu.edu.hk/*", "http://banweb.cityu.edu.hk/*"],
+            "js": ["legacy/contentScript.js"],
             "include_globs" : ["*bwskfreg.P_AltPin*"]
         }
     ],
